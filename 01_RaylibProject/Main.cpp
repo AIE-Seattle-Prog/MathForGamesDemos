@@ -15,45 +15,51 @@
 #include "Vector2.h"
 
 // Your Project
-// "left intentionally blank."
+#include "Player.h"
+#include "Potion.h"
 
-int main() {
-    int screenWidth = 800;
-    int screenHeight = 450;
+int main()
+{
+    /* 
+     * Initialization
+     */
+    int ScreenWidth = 800;
+    int ScreenHeight = 450;
 
-    aie::Vector2 MyVector;
-    MyVector.x = 5.0f;
-    MyVector.y = 13.0f;
+    int CommonTexSize = 256;
 
-    std::cout << MyVector.data[0] << std::endl;
-    std::cout << MyVector.data[1] << std::endl;
-
-    raylib::Vector2 RVec2;
-    RVec2 = MyVector;
-
-    raylib::Vector2 TheirRVec2;
-    TheirRVec2.x = 4;
-    TheirRVec2.y = 6;
-
-    MyVector = TheirRVec2;
-
-    raylib::Window window(screenWidth, screenHeight, "raylib-cpp - basic window");
-    raylib::Texture logo("Res/uvchecker.png");
+    raylib::Window Window(ScreenWidth, ScreenHeight, "raylib-cpp - basic window");
+    raylib::Texture TestTexture("Res/uvchecker.png");
+    Player Hardy("Res/HardyLabel.png");
+    Potion TestPotion("Res/PotionPlaceholder.png");
+    Hardy.HeldPotion = &TestPotion;
 
     SetTargetFPS(60);
 
-    while (!window.ShouldClose())
+    while (!Window.ShouldClose())
     {
+        /*
+         * Update logic
+         */
+        Hardy.Update();
+        TestPotion.Update();
+
+        /*
+         * Draw logic
+         */
         BeginDrawing();
 
-        window.ClearBackground(RAYWHITE);
+        Window.ClearBackground(RAYWHITE);
 
         DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
 
-        // Object methods.
-        logo.Draw(
-            screenWidth / 2 - logo.GetWidth() / 2,
-            screenHeight / 2 - logo.GetHeight() / 2);
+        TestTexture.Draw(
+            ScreenWidth / 2 - CommonTexSize / 2,
+            ScreenHeight / 2 - CommonTexSize / 2
+        );
+
+        Hardy.Draw();
+        TestPotion.Draw();
 
         EndDrawing();
     }
