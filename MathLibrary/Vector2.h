@@ -26,7 +26,7 @@ namespace aie
 		/// </summary>
 		Vector2() : x(0), y(0) {}
 
-#ifdef RAYLIB_CPP_INCLUDE_RAYLIB_CPP_HPP
+#ifdef RAYLIB_CPP_INCLUDE_RAYLIB_CPP_HPP_
 		/// <summary>
 		/// Implicit conversion from raylib-cpp's Vector2 to our Vector2
 		/// </summary>
@@ -48,7 +48,7 @@ namespace aie
 
 #ifdef RAYLIB_H
 		/// <summary>
-		/// Implicit conversion from raylib-cpp's Vector2 to our Vector2
+		/// Implicit conversion from raylib's Vector2 to our Vector2
 		/// </summary>
 		/// <param name="RVector2">Raylib Vector2</param>
 		Vector2(const ::Vector2& RVector2)
@@ -58,12 +58,37 @@ namespace aie
 		}
 
 		/// <summary>
-		/// Implicit conversion from our Vector2 to raylib-cpp's Vector2
+		/// Implicit conversion from our Vector2 to raylib's Vector2
 		/// </summary>
 		operator ::Vector2() const
 		{
 			return { x, y };
 		}
 #endif
+
+		// Operators are kinda like fancy functions with no name, just a symbol
+
+		/**
+		 * Adds the components of each vector together (Addition)
+		 */
+		Vector2 operator +(const Vector2& Rhs) const
+		{
+			Vector2 Sum;
+			Sum.x = x + Rhs.x;
+			Sum.y = y + Rhs.y;
+
+			return Sum;
+		}
+
+		/**
+		 * Add and assign the vectors together (Compound Addition Assignment)
+		 */
+		Vector2& operator +=(const Vector2& Rhs)
+		{
+			x += Rhs.x;
+			y += Rhs.y;
+
+			return *this;
+		}
 	};
 }
