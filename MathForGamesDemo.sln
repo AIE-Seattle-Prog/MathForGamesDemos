@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_RaylibProject", "01_Rayl
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MathLibrary", "MathLibrary\MathLibrary.vcxproj", "{F82A915A-4E94-40F4-B711-8C70B5A3C7D9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MathLibraryTests", "MathLibraryTests\MathLibraryTests.vcxproj", "{D923A84B-65FB-4535-B244-68F441F6CBFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{F82A915A-4E94-40F4-B711-8C70B5A3C7D9}.Release|x64.Build.0 = Release|x64
 		{F82A915A-4E94-40F4-B711-8C70B5A3C7D9}.Release|x86.ActiveCfg = Release|Win32
 		{F82A915A-4E94-40F4-B711-8C70B5A3C7D9}.Release|x86.Build.0 = Release|Win32
+		{D923A84B-65FB-4535-B244-68F441F6CBFF}.Debug|x64.ActiveCfg = Debug|x64
+		{D923A84B-65FB-4535-B244-68F441F6CBFF}.Debug|x64.Build.0 = Debug|x64
+		{D923A84B-65FB-4535-B244-68F441F6CBFF}.Debug|x86.ActiveCfg = Debug|Win32
+		{D923A84B-65FB-4535-B244-68F441F6CBFF}.Debug|x86.Build.0 = Debug|Win32
+		{D923A84B-65FB-4535-B244-68F441F6CBFF}.Release|x64.ActiveCfg = Release|x64
+		{D923A84B-65FB-4535-B244-68F441F6CBFF}.Release|x64.Build.0 = Release|x64
+		{D923A84B-65FB-4535-B244-68F441F6CBFF}.Release|x86.ActiveCfg = Release|Win32
+		{D923A84B-65FB-4535-B244-68F441F6CBFF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

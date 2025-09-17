@@ -30,9 +30,13 @@ int main()
 
     raylib::Window Window(ScreenWidth, ScreenHeight, "raylib-cpp - basic window");
     raylib::Texture TestTexture("Res/uvchecker.png");
+
     Player Hardy("Res/HardyLabel.png");
     Potion TestPotion("Res/PotionPlaceholder.png");
+    TestPotion.Scale = { 0.25f, 0.25f };
     Hardy.HeldPotion = &TestPotion;
+
+    Object* GameObjects[] = { &Hardy, &TestPotion };
 
     SetTargetFPS(60);
 
@@ -41,8 +45,10 @@ int main()
         /*
          * Update logic
          */
-        Hardy.Update();
-        TestPotion.Update();
+        for (size_t i = 0; i < 2; ++i)
+        {
+            GameObjects[i]->Update();
+        }
 
         /*
          * Draw logic
@@ -53,13 +59,15 @@ int main()
 
         DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
 
-        TestTexture.Draw(
-            ScreenWidth / 2 - CommonTexSize / 2,
-            ScreenHeight / 2 - CommonTexSize / 2
-        );
+        for (size_t i = 0; i < 2; ++i)
+        {
+            GameObjects[i]->Draw();
+        }
 
-        Hardy.Draw();
-        TestPotion.Draw();
+        TestTexture.Draw(
+            raylib::Vector2(ScreenWidth / 2 - CommonTexSize / 2,
+            ScreenHeight / 2 - CommonTexSize / 2), 0, -1
+        );
 
         EndDrawing();
     }

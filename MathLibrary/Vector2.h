@@ -21,10 +21,18 @@ namespace aie
 			float data[2];
 		};
 
-		/// <summary>
-		/// Default constructor - initializes all components to zero
-		/// </summary>
+		/**
+		 * Default constructor - initializes all components to zero
+		 */
 		Vector2() : x(0), y(0) {}
+
+		/**
+		 * Parameterized constructor - initializes all components as specified
+		 * 
+		 * @param InX
+		 * @param InY
+		 */
+		Vector2(float InX, float InY) : x(InX), y(InY) {}
 
 #ifdef RAYLIB_CPP_INCLUDE_RAYLIB_CPP_HPP_
 		/// <summary>

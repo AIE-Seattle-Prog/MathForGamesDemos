@@ -1,28 +1,22 @@
 #pragma once
 
-// System Includes
+// 1. System Includes
 
-// Library
+// 2. Library
 #include "raylib-cpp/raylib-cpp.hpp"
 
-// Your Library
+// 3. Your Library
 #include "Vector2.h"
 
-// Your Project
-// "left intentionally blank."
+// 4. Your Project
+#include "SpriteObject.h"
 
-class Player
+class Player : public SpriteObject
 {
 public:
-    raylib::Texture PlayerTexture;
     class Potion* HeldPotion = nullptr;
 
-    float PositionH = 0;
-    float PositionV = 0;
-
-    Player(const char* TexturePath) : PlayerTexture(TexturePath) {}
+    Player(const char* TexturePath) : SpriteObject(TexturePath) {}
     
-    void Update();
-
-    void Draw();
+    virtual void Update() override;
 };

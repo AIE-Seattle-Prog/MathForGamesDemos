@@ -7,24 +7,26 @@
 
 void Player::Update()
 {
+    Object::Update();
+
     if (IsKeyDown('W'))
     {
-        PositionV -= GetFrameTime() * 50.0f;
+        Position.y -= GetFrameTime() * 50.0f;
     }
 
     if (IsKeyDown('S'))
     {
-        PositionV += GetFrameTime() * 50.0f;
+        Position.y += GetFrameTime() * 50.0f;
     }
 
     if (IsKeyDown('A'))
     {
-        PositionH -= GetFrameTime() * 50.0f;
+        Position.x -= GetFrameTime() * 50.0f;
     }
 
     if (IsKeyDown('D'))
     {
-        PositionH += GetFrameTime() * 50.0f;
+        Position.x += GetFrameTime() * 50.0f;
     }
 
     if (IsKeyPressed('E'))
@@ -38,9 +40,4 @@ void Player::Update()
             }
         }
     }
-}
-
-void Player::Draw()
-{
-    PlayerTexture.Draw(raylib::Vector2(PositionH, PositionV));
 }
