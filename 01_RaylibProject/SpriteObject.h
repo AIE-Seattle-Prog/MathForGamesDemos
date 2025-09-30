@@ -11,7 +11,6 @@ public:
 
 	raylib::Texture Sprite;
 	aie::Vector2 Origin = { 0.5f, 0.5f };
-	aie::Vector2 Scale = { 1.0f, 1.0f };
 
 	virtual void Draw() override;
 };

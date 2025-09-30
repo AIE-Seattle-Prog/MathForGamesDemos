@@ -11,25 +11,52 @@ void Player::Update()
 
     if (IsKeyDown('W'))
     {
-        Position.y -= GetFrameTime() * 50.0f;
+        LocalPosition.y -= GetFrameTime() * 50.0f;
     }
 
     if (IsKeyDown('S'))
     {
-        Position.y += GetFrameTime() * 50.0f;
+        LocalPosition.y += GetFrameTime() * 50.0f;
     }
 
     if (IsKeyDown('A'))
     {
-        Position.x -= GetFrameTime() * 50.0f;
+        LocalPosition.x -= GetFrameTime() * 50.0f;
     }
 
     if (IsKeyDown('D'))
     {
-        Position.x += GetFrameTime() * 50.0f;
+        LocalPosition.x += GetFrameTime() * 50.0f;
     }
 
-    if (IsKeyPressed('E'))
+    if (IsKeyDown('Q'))
+    {
+        LocalRotation -= 5.0f * GetFrameTime();
+    }
+    if (IsKeyDown('E'))
+    {
+        LocalRotation += 5.0f * GetFrameTime();
+    }
+
+    if (IsKeyDown('X'))
+    {
+        LocalScale.x -= 0.5f * GetFrameTime();
+    }
+    if (IsKeyDown('Z'))
+    {
+        LocalScale.x += 0.5f * GetFrameTime();
+    }
+
+    if (IsKeyDown('C'))
+    {
+        LocalScale.y -= 0.5f * GetFrameTime();
+    }
+    if (IsKeyDown('V'))
+    {
+        LocalScale.y += 0.5f * GetFrameTime();
+    }
+
+    if (IsKeyPressed('H'))
     {
         if (HeldPotion != nullptr)
         {
